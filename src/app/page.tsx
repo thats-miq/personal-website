@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Home() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 px-6 dark:bg-black">
@@ -32,6 +34,12 @@ export default function Home() {
           >
             LinkedIn
           </a>
+          <Link
+            href="/books-movies"
+            className="text-lg font-medium text-zinc-600 underline underline-offset-4 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-zinc-50"
+          >
+            Books & Movies
+          </Link>
         </div>
       </main>
     </div>
