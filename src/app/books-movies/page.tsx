@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { books } from "./data";
 import MovieGrid from "./movie-grid";
@@ -5,10 +6,10 @@ import MovieGrid from "./movie-grid";
 export default function BooksMovies() {
   return (
     <div className="flex min-h-screen items-start justify-center bg-zinc-50 px-6 py-16 dark:bg-black">
-      <main className="flex w-full max-w-2xl flex-col gap-12">
+      <main className="flex w-full max-w-3xl flex-col gap-12">
         <div className="flex items-center justify-between">
           <h1 className="text-4xl font-semibold tracking-tight text-black dark:text-zinc-50">
-            Books & Movies
+            Favorite Books & Movies
           </h1>
           <Link
             href="/"
@@ -22,13 +23,26 @@ export default function BooksMovies() {
           <h2 className="text-2xl font-semibold text-black dark:text-zinc-50">
             Books
           </h2>
-          <ul className="flex flex-col gap-3">
+          <ul className="grid grid-cols-2 gap-4 sm:grid-cols-4">
             {books.map((book) => (
-              <li key={book.title} className="flex flex-col">
-                <span className="text-lg text-black dark:text-zinc-50">
+              <li
+                key={book.title}
+                className="flex flex-col items-center rounded-lg border border-zinc-200 p-3 dark:border-zinc-800"
+              >
+                {book.coverUrl && (
+                  <Image
+                    src={book.coverUrl}
+                    alt={book.title}
+                    width={120}
+                    height={180}
+                    className="mb-2 rounded object-cover"
+                    unoptimized
+                  />
+                )}
+                <span className="text-center text-sm font-medium text-black dark:text-zinc-50">
                   {book.title}
                 </span>
-                <span className="text-base text-zinc-500 dark:text-zinc-400">
+                <span className="text-center text-xs text-zinc-500 dark:text-zinc-400">
                   {book.author}
                 </span>
               </li>

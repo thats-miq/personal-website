@@ -38,7 +38,7 @@ export default function Home() {
             href="/books-movies"
             className="text-lg font-medium text-zinc-600 underline underline-offset-4 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-zinc-50"
           >
-            Books & Movies
+            Favorite Books & Movies
           </Link>
         </div>
       </main>

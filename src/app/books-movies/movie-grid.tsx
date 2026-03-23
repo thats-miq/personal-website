@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import { movies } from "./data";
 
@@ -18,12 +19,22 @@ export default function MovieGrid() {
         {currentMovies.map((movie) => (
           <li
             key={movie.title}
-            className="flex flex-col rounded-lg border border-zinc-200 p-4 dark:border-zinc-800"
+            className="flex flex-col items-center rounded-lg border border-zinc-200 p-3 dark:border-zinc-800"
           >
-            <span className="text-lg text-black dark:text-zinc-50">
+            {movie.posterUrl && (
+              <Image
+                src={movie.posterUrl}
+                alt={movie.title}
+                width={160}
+                height={240}
+                className="mb-2 rounded object-cover"
+                unoptimized
+              />
+            )}
+            <span className="text-center text-sm font-medium text-black dark:text-zinc-50">
               {movie.title}
             </span>
-            <span className="text-base text-zinc-500 dark:text-zinc-400">
+            <span className="text-center text-xs text-zinc-500 dark:text-zinc-400">
               {movie.year}
             </span>
           </li>
